@@ -3,12 +3,13 @@ import Marquee from 'react-fast-marquee';
 
 const BreakingNews = () => {
     return (
-        <div className="flex items-center bg-gray-300  py-2 px-4">
+        <div className="container mx-auto flex items-center bg-gray-200  py-2 px-4">
             <button className=" btn text-white bg-red-400 font-bold py-1 px-3 rounded mr-4">
                 Latest News
             </button>
             <Marquee speed={50}
-                pauseOnHover={true} className="bg-red-100  py-2">
+                pauseOnHover={true}
+                className="text-lg py-2 text-red-700">
                 <span className="mx-4 font-bold">Breaking News:</span>
                 <span className="mx-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
                 <span className="mx-4">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>

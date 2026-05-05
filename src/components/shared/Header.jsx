@@ -5,7 +5,7 @@ import { formatDate } from 'date-fns';
 
 const Header = () => {
     return (
-        <div className='container mx-auto text-center py-8'>
+        <div className='container mx-auto text-center py-8 shadow-md rounded-md bg-slate-100'>
             <Image src={logo} alt="Logo" width={300} height={200} className="mx-auto mb-4 bg-amber-200 p-2" />
             <h4>Journalism Without Fear or Favour</h4>
             <p>{formatDate(new Date(), 'EEEE, MMMM dd, yyyy')}</p>

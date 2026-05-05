@@ -7,7 +7,6 @@ import { IoShareSocialSharp } from 'react-icons/io5';
 
 const NewsCard = ({ news }) => {
 
-    console.log(news.image_url);
 
     return (
 

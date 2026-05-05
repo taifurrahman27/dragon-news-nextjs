@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
 
-const defaultCategory = '08';
+const defaultCategory = '01';
 
 export default async function Home() {
 

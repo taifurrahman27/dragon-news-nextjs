@@ -2,15 +2,14 @@
 
 import Link from "next/link";
 import React from "react";
+import { useForm } from "react-hook-form";
 
 const LoginPage = () => {
-    const handleLogin = (e) => {
-        e.preventDefault();
 
-        const email = e.target.email.value;
-        const password = e.target.password.value;
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
-        console.log(email, password);
+    const handleLogin = (data) => {
+        console.log(data);
     };
 
     return (
@@ -20,7 +19,7 @@ const LoginPage = () => {
                     Welcome to the Login page
                 </h1>
 
-                <form onSubmit={handleLogin} className="pb-10 border shadow-2xl">
+                <form onSubmit={handleSubmit(handleLogin)} className="pb-10 border shadow-2xl">
                     <fieldset className="fieldset border-base-300 rounded-box border p-4">
                         <legend className="fieldset-legend text-2xl font-bold">
                             Login
@@ -30,10 +29,10 @@ const LoginPage = () => {
                         <input
                             type="email"
                             className="input w-full"
-                            name="email"
+                            {...register("email", { required: true })}
                             placeholder="Enter Your Email"
-                            required
                         />
+                        {errors.email && <p className="text-red-500">Email is required</p>}
                     </fieldset>
 
                     <fieldset className="fieldset border-base-300 rounded-box border p-4">
@@ -41,10 +40,10 @@ const LoginPage = () => {
                         <input
                             type="password"
                             className="input w-full"
-                            name="password"
+                            {...register("password", { required: true })}
                             placeholder="Enter Your Password"
-                            required
                         />
+                        {errors.password && <p className="text-red-500">Password is required</p>}
 
                         <button type="submit" className="btn btn-neutral mt-4">
                             Login
@@ -53,7 +52,7 @@ const LoginPage = () => {
 
                     <p className="text-center">
                         Do not have an account?{" "}
-                        <Link href="/register" className="text-blue-500">
+                        <Link href="/register" className="text-blue-500 hover:underline">
                             Register here
                         </Link>
                     </p>

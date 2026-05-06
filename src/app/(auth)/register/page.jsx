@@ -9,7 +9,8 @@ const RegisterPage = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const handleRegister = (data) => {
-        console.log(data);
+        const { name, email, photoUrl, password } = data;
+        console.log(name, email, photoUrl, password);
     };
 
     return (

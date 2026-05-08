@@ -17,9 +17,12 @@ const Navbar = () => {
 
             <div className='flex items-center gap-2'>
                 <Image src={userAvater} alt="Logo" width={50} height={50} />
-                <button>
-                    <Link href="/login" className="btn text-blue-500 hover:underline">Login</Link>
-                </button>
+                <Link
+                    href="/login"
+                    className="btn text-blue-500 hover:underline"
+                >
+                    Login
+                </Link>
             </div>
         </div>
     );

@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -8,9 +9,31 @@ const RegisterPage = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const handleRegister = (data) => {
+    const handleRegister = async (data) => {
         const { name, email, photoUrl, password } = data;
         console.log(name, email, photoUrl, password);
+
+        const { data: res, error } = await authClient.signUp.email({
+
+            name: name,
+            email: email,
+            password: password,
+            photoUrl: photoUrl,
+            callbackURL: "http://localhost:3000/login"
+
+        })
+
+        console.log(res, error);
+
+
+        if (error) {
+            console.error("Error occurred while registering:", error);
+            alert("Registration failed: " + error.message);
+        } else {
+            console.log("Registration successful:", res);
+            alert("Registration successful!");
+        }
+
     };
 
     return (
@@ -29,7 +52,7 @@ const RegisterPage = () => {
 
                         <label className="label">Enter Your Name</label>
                         <input
-                            type="name"
+                            type="text"
                             className="input w-full"
                             {...register("name", { required: true })}
                             placeholder="Name"

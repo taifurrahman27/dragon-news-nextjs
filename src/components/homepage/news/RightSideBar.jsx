@@ -1,3 +1,5 @@
+"use client";
+
 import Image from 'next/image';
 import React from 'react';
 import { BsInstagram, BsTwitter } from 'react-icons/bs';
@@ -6,8 +8,20 @@ import swimmingImg from '../../../assets/swimming.png';
 import clasImg from '../../../assets/class.png';
 import playgroundImg from '../../../assets/playground.png';
 import rightSidebarImage from '../../../assets/bg.png';
+import { authClient } from '@/lib/auth-client';
 
 const RightSideBar = () => {
+
+    const handleGoogleSignin = async () => {
+        try {
+            await authClient.signIn.social({
+                provider: "google",
+            });
+        } catch (error) {
+            console.error("Error signing in with Google:", error);
+        }
+    };
+
     return (
         <div>
             <div>
@@ -15,7 +29,7 @@ const RightSideBar = () => {
 
                 <div className='flex flex-col gap-1.5'>
 
-                    <button className='btn border-2 border-blue-400 py-2.5 rounded-md my-1 mt-1.5 w-full'><FaGoogle className='text-red-700' />
+                    <button className='btn border-2 border-blue-400 py-2.5 rounded-md my-1 mt-1.5 w-full'><FaGoogle className='text-red-700' onClick={handleGoogleSignin} />
                         Google</button>
                     <button className='btn border-2 border-blue-400 py-2.5 rounded-md my-1 mt-1.5 w-full'><FaGithub className='text-gray-800' />GitHub</button>
                     <button className='btn border-2 border-blue-400 py-2.5 rounded-md my-1 mt-1.5 w-full'><FaFacebookF className='text-blue-600' />

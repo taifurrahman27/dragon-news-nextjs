@@ -2,12 +2,15 @@
 
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const RegisterPage = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
     const handleRegister = async (data) => {
         const { name, email, photoUrl, password } = data;
@@ -18,7 +21,7 @@ const RegisterPage = () => {
             name: name,
             email: email,
             password: password,
-            photoUrl: photoUrl,
+            image: photoUrl,
             callbackURL: "http://localhost:3000/login"
 
         })
@@ -84,12 +87,21 @@ const RegisterPage = () => {
 
                     <fieldset className="fieldset border-base-300 rounded-box border p-4">
                         <label className="label">Password</label>
-                        <input
-                            type="password"
-                            className="input w-full"
-                            {...register("password", { required: true })}
-                            placeholder="Enter Your Password"
-                        />
+                        <div className="relative">
+                            <input
+                                type={isPasswordVisible ? "text" : "password"}
+                                className="input w-full pr-10"
+                                {...register("password", { required: true })}
+                                placeholder="Enter Your Password"
+                            />
+
+                            <span
+                                className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer"
+                                onClick={() => setIsPasswordVisible(!isPasswordVisible)}
+                            >
+                                {isPasswordVisible ? <FaEyeSlash /> : <FaEye />}
+                            </span>
+                        </div>
                         {errors.password && <p className="text-red-500">Password is required</p>}
 
                         <button type="submit" className="btn btn-neutral mt-4">

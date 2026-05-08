@@ -11,9 +11,9 @@ const BreakingNews = () => {
                 pauseOnHover={true}
                 className="text-lg py-2 text-red-700">
                 <span className="mx-4 font-bold">Breaking News:</span>
-                <span className="mx-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                <span className="mx-4">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                <span className="mx-4">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+                <span className="mx-4">Biden Pledges Nearly $3 Billion To Ukraine In Largest U.S. Military Aid Package Yet.</span>
+                <span className="mx-4">Tucker Carlson Swears Vladimir Putin Is Winning The War In Ukraine.</span>
+                <span className="mx-4">Biden announces $3 billion Ukraine military aid package on its Independence Day.</span>
             </Marquee>
         </div>
     );

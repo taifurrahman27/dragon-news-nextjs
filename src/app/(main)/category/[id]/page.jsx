@@ -24,7 +24,7 @@ const NewsByCategoryIdPage = async ({ params }) => {
 
 
 
-            <div className="text-xl col-span-6 md:col-span-12 lg:col-span-18 font-bold bg-red-200 my-2.5">
+            <div className="text-xl col-span-6 md:col-span-12 lg:col-span-18 font-bold bg-slate-100 my-2.5">
                 <h2 className="text-center py-2.5">News By Category</h2>
 
                 <div className="border border-gray-300 p-2 rounded-md">

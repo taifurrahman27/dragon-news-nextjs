@@ -14,8 +14,6 @@ const RegisterPage = () => {
 
     const handleRegister = async (data) => {
         const { name, email, photoUrl, password } = data;
-        console.log(name, email, photoUrl, password);
-
         const { data: res, error } = await authClient.signUp.email({
 
             name: name,
@@ -26,14 +24,9 @@ const RegisterPage = () => {
 
         })
 
-        console.log(res, error);
-
-
         if (error) {
-            console.error("Error occurred while registering:", error);
             alert("Registration failed: " + error.message);
         } else {
-            console.log("Registration successful:", res);
             alert("Registration successful!");
         }
 

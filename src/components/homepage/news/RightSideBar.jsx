@@ -16,9 +16,11 @@ const RightSideBar = () => {
         try {
             await authClient.signIn.social({
                 provider: "google",
+                alert: "Login with Google successful!",
+                callbackURL: "http://localhost:3000/"
             });
         } catch (error) {
-            console.error("Error signing in with Google:", error);
+            alert("Google Sign-In failed: " + error.message);
         }
     };
 
@@ -29,8 +31,12 @@ const RightSideBar = () => {
 
                 <div className='flex flex-col gap-1.5'>
 
-                    <button className='btn border-2 border-blue-400 py-2.5 rounded-md my-1 mt-1.5 w-full'><FaGoogle className='text-red-700' onClick={handleGoogleSignin} />
-                        Google</button>
+                    <div onClick={handleGoogleSignin} className=''>
+                        <button className='btn border-2 border-blue-400 py-2.5 rounded-md my-1 mt-1.5 w-full' onClick={handleGoogleSignin}>
+                            <FaGoogle className='text-red-700' />
+                            Google
+                        </button>
+                    </div>
                     <button className='btn border-2 border-blue-400 py-2.5 rounded-md my-1 mt-1.5 w-full'><FaGithub className='text-gray-800' />GitHub</button>
                     <button className='btn border-2 border-blue-400 py-2.5 rounded-md my-1 mt-1.5 w-full'><FaFacebookF className='text-blue-600' />
                         Facebook</button>

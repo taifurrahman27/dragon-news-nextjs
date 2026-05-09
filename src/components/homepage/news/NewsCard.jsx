@@ -46,8 +46,8 @@ const NewsCard = ({ news }) => {
 
                 <p>
                     {news?.details
-                        ? news.details.length > 250
-                            ? news.details.slice(0, 250) + "..."
+                        ? news.details.length > 150
+                            ? news.details.slice(0, 150) + "..."
                             : news.details
                         : "No details available"}
                 </p>

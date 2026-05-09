@@ -12,8 +12,6 @@ const NewsByCategoryIdPage = async ({ params }) => {
     const categories = await getCategories();
 
     const news = await getNewsByCategoryId(id);
-    console.log(news, "news er n");
-
 
     return (
         <div className="container mx-auto my-10 grid grid-cols-12 md:grid-cols-24 lg:grid-cols-36 gap-4">

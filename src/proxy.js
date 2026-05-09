@@ -9,6 +9,7 @@ export async function proxy(request) {
     if (!session) {
         return NextResponse.redirect(
             new URL("/login", request.url)
+
         );
     }
 
@@ -16,5 +17,5 @@ export async function proxy(request) {
 }
 
 export const config = {
-    matcher: ["/career"],
+    matcher: ["/career", "/about-us"]
 };

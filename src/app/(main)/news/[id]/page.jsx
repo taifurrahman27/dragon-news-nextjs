@@ -6,12 +6,8 @@ import { FaEye } from 'react-icons/fa';
 import { FcRating } from 'react-icons/fc';
 
 const NewsDetailsPage = async ({ params }) => {
-
     const { id } = await params;
-    console.log(id, "params er res");
-
     const newsDetails = await getNewsDetailsById(id);
-    console.log(newsDetails, "news details er res");
 
     return (
         <div className="card max-w-4xl mx-auto my-5 p-4 border border-gray-300 rounded-md">

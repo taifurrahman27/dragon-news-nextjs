@@ -13,9 +13,6 @@ const LoginPage = () => {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
     const handleLogin = async (data) => {
-
-        console.log(data);
-
         const { data: signInData, error } = await authClient.signIn.email({
             email: data.email,
             password: data.password,
@@ -23,20 +20,13 @@ const LoginPage = () => {
             callbackURL: "/"
         });
 
-        console.log(signInData, error);
-
-
         if (error) {
-            console.error("Error occurred while logging in:", error);
             alert("Login failed: " + error.message);
         } else {
-            console.log("Login successful:", signInData);
             alert("Login successful!");
         }
 
     };
-
-
 
     return (
         <div className="container mx-auto min-h-80 flex items-center justify-center bg-slate-100 py-10">
